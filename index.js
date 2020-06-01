@@ -10,10 +10,10 @@ function getDogImage(breed) {
 function displayResults(responseJson) {
     console.log(responseJson);
     
-    if (responseJson.message == "Breed not found") {
-        alert('Breed Not Found');
+    if (responseJson.status == "error") {
+        $('.dogresults').html(`<h2>${responseJson.message}</h2>`); 
       } else {
-    $('.dogresults').append(`<img src="${responseJson.message}">`);
+    $('.dogresults').html(`<img src="${responseJson.message}">`);
     $('.dogresults').removeClass('hidden');
       }
     } 
