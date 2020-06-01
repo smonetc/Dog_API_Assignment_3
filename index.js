@@ -10,12 +10,13 @@ function getDogImage(breed) {
 function displayResults(responseJson) {
     console.log(responseJson);
     
-    if (responseJson.status == "error") {
-        $('.dogresults').html(`<h2>${responseJson.message}</h2>`); 
+    if (responseJson.status == "success") {
+        $('.dogresults').html(`<img src="${responseJson.message}">`);
       } else {
-    $('.dogresults').html(`<img src="${responseJson.message}">`);
-    $('.dogresults').removeClass('hidden');
+        $('.dogresults').html(`<h2>${responseJson.message}</h2>`);
       }
+
+      $('.dogresults').removeClass('hidden');
     } 
 
   function watchForm() {
@@ -30,3 +31,4 @@ function displayResults(responseJson) {
   console.log('App loaded! Waiting for submit!');
   watchForm();
 });
+  
